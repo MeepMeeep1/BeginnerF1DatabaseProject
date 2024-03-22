@@ -1,8 +1,7 @@
-# BeginnerF1DatabaseProject
-Formula 1 Database Project
+# Formula 1 Database Project
 
-This is my first database project using MySQL. 
-Basic DML, DQL and DDL.
+
+Basic DDL, DML, DQL
 
 In the fast-paced realm of Formula 1, a reliable database is essential for streamlined operations. Serving as a centralized hub, it houses critical data like race history, car metrics, and driver stats. This information fuels real-time decision-making during races, enabling engineers to adjust strategies on the fly based on telemetry data. Beyond the track, teams use the database for long-term planning, analyzing trends and refining strategies over multiple seasons. Moreover, the database plays a pivotal role in technological advancements, facilitating simulations and predictive modeling to fine-tune car setups before races. In essence, the Formula 1 database is the linchpin of the entire system, supporting both immediate race decisions and long-term performance optimization.
 
@@ -19,3 +18,53 @@ The database should also include departments representing various functional uni
 During races, the driver is solely responsible for piloting their assigned car. They must navigate the track, make split-second decisions, and compete against other drivers to achieve the best possible result for themselves and the team. Each car includes attributes like car ID, car number, car name, and the year. Sponsors are linked to specific cars and have attributes like sponsor ID, sponsor name, contract start and end dates, and investment amounts. Race engineers serve as the primary point of contact between the driver and the technical team, playing a pivotal role in strategizing, decision-making, and ensuring that the car performs at its best on the track. They are identified by name and ID.
 
 Pit stops are a dynamic and integral aspect of Formula 1 races, serving as a strategic and technical interlude where teams can enhance their competitive position through quick and efficient adjustments to the car, the art of pit stops combines speed, precision, and strategic decision-making to contribute significantly to a team's overall race performance. Pit stops include attributes such as duration, workers, time and tires including new and old tires. 
+
+
+
+**Relational Model:**
+
+  -Entities:
+  
+    ●	Engineer ( ID ,  name , address , dob , nationality, job, profession) 
+    
+    ●	Mechanic ( ID ,  name , address , dob , nationality , level)
+    
+    ●	Car parts ( parts-ID , version , type , health) 
+    
+    ●	Car( car-ID , CarVersion , year)
+    
+    ●	Standings(standings-ID, #race_ID, #driver_ID,points , raceResult)
+    
+    ●	Race Engineer( ID ,#Driver-ID(not null) ,   name , address , dob , nationality, job)
+    
+    ●	Driver(ID ,#team-ID(not null) ,# car-ID ,  name , address , dob , nationality , contract-End , Contract-start , position)
+    
+    ●	Team ( Team-ID ,Team_Name,# Team-principal-ID (not null),headquarters , Engine-supplier , main-sponsor, total_Points)
+    
+    ●	Team Principal(Team-Principal-ID , #carID , name , address , dob , nationality , contract-end , contract-start )
+    
+    ●	Sponsor(Sponsor_ID, sponsorName , contract_Start, investmentAmount, Contract_End)
+    
+    ●	Race(raceID, date, weather, raceName, circuitName, Region, City, Country)
+    
+    ●	Accident( #carID, Accident_ID, date)
+    
+    ●	Department(building-number , #teamID(not null) , type , budget , nbOfEmployees)
+    
+    ●	PitStops(#raceID , time, duration, type_of_old,  type_of_new)
+
+  -Relations:
+  
+      ●	Works-IN ( #Building-number , #Engineer-ID) 
+      
+      ●	Participates(#raceID, #carID)
+      
+      ●	sponsors(#Sponsor_ID, #carID)
+      
+      ●	fixes(#Mechanic-ID, #carID)
+      
+      ●	damages(#parts-ID, #carID, #Accident_ID)
+      
+      ●	fabricates(#parts-ID,#Engineer-ID,  #building-number)
+      
+      ●	monitors(#race-ID , car-ID)
