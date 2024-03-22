@@ -1,4 +1,4 @@
-# Formula 1 Database Project: Basic DDL, DML, and DQL
+# Formula 1 Database Project: Basic DDL, DML, and DQL Using MySQL
 
 In the fast-paced realm of Formula 1, a reliable database is essential for streamlined operations. Serving as a centralized hub, it houses critical data like race history, car metrics, and driver stats. This information fuels real-time decision-making during races, enabling engineers to adjust strategies on the fly based on telemetry data. Beyond the track, teams use the database for long-term planning, analyzing trends, and refining strategies over multiple seasons. Moreover, the database plays a pivotal role in technological advancements, facilitating simulations and predictive modeling to fine-tune car setups before races. In essence, the Formula 1 database is the linchpin of the entire system, supporting both immediate race decisions and long-term performance optimization.
 
